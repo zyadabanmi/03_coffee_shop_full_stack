@@ -108,3 +108,9 @@ def unprocessable(error):
 @TODO implement error handler for AuthError
     error handler should conform to general task above 
 '''
+
+@app.route('/')
+def hello_api():
+    return jsonify({
+        "message": "hello"
+    })
