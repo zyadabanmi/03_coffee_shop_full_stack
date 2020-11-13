@@ -109,8 +109,17 @@ def unprocessable(error):
     error handler should conform to general task above 
 '''
 
-@app.route('/')
-def hello_api():
+@app.errorhandler(AuthError)
+def authError(AuthError):
     return jsonify({
-        "message": "hello"
+                    "success": False, 
+                    "error": AuthError.status_code,
+                    "message": AuthError.error
+                    }), AuthError.status_code
+
+@app.route('/drinks-detail')
+@requires_auth(permission='get:drinks')
+def hello_api(payload):
+    return jsonify({
+        "message": payload
     })
