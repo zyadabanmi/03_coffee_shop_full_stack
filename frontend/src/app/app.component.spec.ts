@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
 
+
+
+  
   let statusBarSpy, splashScreenSpy, platformReadySpy, platformSpy;
 
   beforeEach(async(() => {
